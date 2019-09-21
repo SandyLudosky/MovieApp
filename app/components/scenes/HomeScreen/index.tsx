@@ -12,18 +12,10 @@ import {
   NavigationState,
 } from 'react-navigation';
 
-interface NavigationProps {
+export interface NavigationProps {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
-export interface NavigationLeafRoute<Params> {
-  // ...
-  /**
-   * Params passed to this route when navigating to it,
-   * e.g. `{ car_id: 123 }` in a route that displays a car.
-   */
-  params?: Params;
-}
 interface State {
     search: string,
     movies: IMovie[],

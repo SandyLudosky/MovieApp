@@ -8,11 +8,11 @@ interface MovieProps {
 }
 
 export const MovieItem: FunctionComponent<MovieProps> = ({ movie, onPress }) => {
-  const onClick = (movie: IMovie) => {
+  const onClick = () => {
     console.log('pressed' + movie.title)
     onPress(movie);
   };
   return (
-    <Text>{movie.title}<Button onPress={() => onClick(movie)} title="See Movie" />see</Text>
+    <Text>{movie.title}<Button onPress={onClick} title="See Movie" />see</Text>
   );
 };

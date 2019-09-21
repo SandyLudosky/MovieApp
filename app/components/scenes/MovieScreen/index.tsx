@@ -6,25 +6,24 @@ import {
     NavigationScreenProp,
     NavigationState,
   } from 'react-navigation';
+  
 
-export interface IMovieProps {
+interface IMovieProps {
     movie: IMovie; 
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
-interface State {
-    movie: IMovie
-}
+
+interface State {}
 
 class MovieScreen extends Component<IMovieProps, State>  { 
-    constructor(props: IMovieProps) {
+    constructor(props: Readonly<IMovieProps>) {
         super(props)
-        this.state = {
-            movie: props.movie
-        }
     }
- 
+  
     render() {
-        return(<Text>This is the Movie Screen {this.state.movie.title}</Text>)
+        const { navigation } = this.props
+        const movie = navigation.state.params.movie
+        return(<Text>This is the Movie Screen {movie.title}</Text>)
     }
 }
 export default MovieScreen
