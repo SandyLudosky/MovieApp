@@ -15,11 +15,8 @@ const TextTruncate = (props) => {
     const { text, characterLength } = props
     return <TextDescription>{helpers.truncate(text, characterLength)}</TextDescription>
 }
-const Accessory = ({ children }) => (
-    <View>{children}</View>
-);
-  
-Accessory.ChevronIcon = ({style}) => <Icon style={style} type='evilicon' name='chevron-right'/>;
+const Accessory = ({ children}) => {children};
+Accessory.ChevronIcon = ({style}) => <View style={style}><Icon type='evilicon' name='chevron-right'/></View>;
 
 export {
    Img,

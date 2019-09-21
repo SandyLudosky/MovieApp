@@ -28,10 +28,10 @@ const ScrollableList = ({ results , onPress }: any) => {
                     const imageURI = 'http://image.tmdb.org/t/p/w185' + item.poster_path 
                     const image = item.poster_path != null ? imageURI : placeholder
                     return (<Cell item={item} onPress={onPress} key={item.id}
-                                            style={styles.description}> 
+                                            style={[styles.cell, styles.rounded]}> 
                                 <Img src={imageURI} style={styles.image} />
                                 <Content item={item}/>
-                                <Accessory.ChevronIcon style={styles.icon} />
+                                <Accessory.ChevronIcon style={styles.icon}/>
                             </Cell>)})
                 }
             </ScrollView>)
@@ -42,8 +42,9 @@ const styles = StyleSheet.create({
     },
     row: {
         flex: 4,
-        padding: 15,    
-        backgroundColor: '#f5f5f5',
+        paddingLeft: 40,  
+        paddingTop: 20,  
+        paddingBottom: 20,   
         height: 130,
         width: 130
     }, 
@@ -52,19 +53,29 @@ const styles = StyleSheet.create({
         padding: 5,
         flexDirection: 'column',
         justifyContent:'center', 
-        color:'#333'
+        color:'#fff'
     },
     image: {
         flex: 2,
+        marginLeft: 10,
         width: 130,
         height: 130,
         alignSelf: 'center',
-        padding: 20
+        borderBottomLeftRadius: 10,
+        borderTopLeftRadius: 10
     },
-    description: {
+    rounded: {
+        borderRadius: 10
+    },
+    cell: {
         flex: 1, 
         flexDirection: 'row', 
-        alignItems: 'stretch' 
+        alignItems: 'stretch', 
+        backgroundColor: 'rgba(189, 195, 199,.2)', 
+        marginLeft: 15,
+        marginRight: 15,
+        marginTop: 5,
+        marginBottom: 5
     }
 });
 
