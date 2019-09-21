@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { Cell, Row } from '../molecules'
 import { Img } from '../atoms'
-import { TextHeading2, TextBold, TextDescription } from '../../common/customElements'
+import { TextHeading2, TextBold, TextDescription } from '../../common/styles/customElements'
 import { IMovie } from '../../models/movie'
 import Styles from '../../common/styles'
 

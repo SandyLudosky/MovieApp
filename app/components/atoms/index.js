@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextDescription } from '../../common/customElements'
+import { TextDescription } from '../../common/styles/customElements'
 import * as helpers from '../../common/utils/helpers'
 import { Icon } from 'react-native-elements'
 import {

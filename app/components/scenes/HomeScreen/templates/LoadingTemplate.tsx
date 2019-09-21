@@ -6,3 +6,5 @@ export const LoadingTemplate: FunctionComponent = () => (
     <Text>Loading ...</Text>
   </View>
 );
+
+export default LoadingTemplate

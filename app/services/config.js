@@ -9,7 +9,6 @@ export const Languages = {
     german: 'de-DE'
 
 }
-
 export const EndPoints = {
     Search: {
         Company:'search/company',

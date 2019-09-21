@@ -1,9 +1,7 @@
 import React from "react";
-import { 
-  ListTemplate,
-  LoadingTemplate, 
-  EmptyTemplate
-} from './index'
+import ListTemplate  from './ListTemplate'
+import LoadingTemplate from './LoadingTemplate'
+import EmptyTemplate from './EmptyTemplate'
 
 export const MoviesList = (props: { movies: any; isLoading: any; search: any; text: string, onPress: any; })  => {
   const { movies, isLoading, text, onPress } = props

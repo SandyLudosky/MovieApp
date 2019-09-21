@@ -3,8 +3,8 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cell, Row } from '../molecules'   
 import { Img,  TextTruncate, Accessory} from '../atoms'
-import { TextTitleSemiBold, TextDescription } from '../../common/customElements'
-import ColorPalette from '../../common/colorPalette'
+import { TextTitleSemiBold, TextDescription } from '../../common/styles/customElements'
+import ColorPalette from '../../common/styles/colors'
 import { IMovie } from '../../models/movie';
 
 const Content  = (props: any) => {

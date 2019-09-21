@@ -13,3 +13,5 @@ export const ListTemplate: FunctionComponent<MoviesProps> = ({ movies, onPress }
      <ScrollableList results={movies} onPress={onPress} />
   </View>
 );
+
+export default ListTemplate

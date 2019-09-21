@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { IMovie } from '../../../models/movie'
-import { MoviesList } from './templates/MoviesList'
+import { MoviesList } from './templates'
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { EndPoints, Languages } from '../../../services/config';
