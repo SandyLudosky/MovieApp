@@ -1,2 +1,3 @@
 import ScrollableList from './ScrollableList'
-export { ScrollableList }
+import MovieView from './MovieView'
+export { ScrollableList, MovieView }

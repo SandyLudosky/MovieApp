@@ -2,6 +2,9 @@ import React, { Component, Fragment} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { IMovie } from '../../../models/movie'
 import { MoviesView } from './templates/MoviesView'
+import * as API from '../../../services/API'
+import { Query } from '../../../services/API'
+import { EndPoints, Languages } from '../../../services/config';
 import {
     SafeAreaView,
     StatusBar,
@@ -18,6 +21,7 @@ export interface NavigationProps {
 
 interface State {
     search: string,
+    text: string,
     movies: IMovie[],
     isLoading: boolean
 }
@@ -25,6 +29,7 @@ interface State {
 class HomeScreen extends Component<NavigationProps, State> {
     state = {
       search: '', 
+      text: '',
       movies: [], 
       isLoading: false
     }
@@ -37,24 +42,14 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     onTextChange = (input: string) => {
       this.setState({ search: input, isLoading: true}, () => {
-        this.fetch(input)
+        const request = new Query(EndPoints.Search.Movie, '', { query: input, language: Languages.english })
+        this.fetch(request)
       })
     }
-  
-    fetch = (input: string) => {
-      fetch('https://api.themoviedb.org/3/search/movie?api_key=da2a25f95b10f3083241d558d0d47ac8&query=' + input)
-      .then(response => {
-        if (!response.ok) { return false }
-        return response.json()
-      })
-      .then(data => {
-        console.log(data.results)
-        this.setState({ 
-          isLoading: false, 
-          movies: data.results})
-      })
-      .catch(e => {
-        console.log(e)
+    fetch = (request: Query) => {
+      API.get(request).then(data => {
+        const text = data.results.length == 0 ? `No Results for "${this.state.search}"` : ''
+        this.setState({ isLoading: false, movies: data.results, text: text});
       })
     }
     render() {

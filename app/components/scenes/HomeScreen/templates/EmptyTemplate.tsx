@@ -2,11 +2,11 @@ import React, { FunctionComponent } from "react";
 import { Text, View } from 'react-native'
 
 interface Props {
-  search: string;
+  text: string;
 }
 
-export const EmptyTemplate: FunctionComponent<Props> = ({search}) => (
+export const EmptyTemplate: FunctionComponent<Props> = ({text}) => (
   <View>
-    <Text>{ search }</Text>
+    <Text>{ text }</Text>
   </View>
 );

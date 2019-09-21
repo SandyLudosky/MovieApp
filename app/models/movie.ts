@@ -4,5 +4,5 @@ export interface IMovie {
     overview: string;
     release_date: string;
     poster_path: string;
-    vote_averate: number
+    vote_average: number
   }

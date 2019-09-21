@@ -9,7 +9,6 @@ const Cell = (props: any) => {
     const onClick = (movie: IMovie) => {
         //vérifier route . pas hardcodé
         onPress(movie)
-        //navigation.navigate('Movie', { id });
     }
     return (
         <TouchableOpacity onPress={() => onClick(item)} >              
