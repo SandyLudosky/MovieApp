@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
+import { IMovie } from '../../models/movie'
 import Styles from '../../styles';
 
 //reusable element to display movieItem in a scrollable list
 const Cell = (props: any) => {
     const { onPress, item, children, style } = props
-    const onClick = (id: number) => {
+    const onClick = (movie: IMovie) => {
         //vérifier route . pas hardcodé
-        onPress(id)
+        onPress(movie)
         //navigation.navigate('Movie', { id });
     }
     return (
-        <TouchableOpacity onPress={() => onClick(item.id)} >              
+        <TouchableOpacity onPress={() => onClick(item)} >              
             <View style={style}>{children}</View>
         </TouchableOpacity>)
 } 

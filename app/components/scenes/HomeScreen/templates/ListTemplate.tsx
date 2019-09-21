@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { View } from 'react-native'
-import { IMovie } from '../../models/movie'
-import { ScrollableList } from '../organisms/index'
+import { IMovie } from '../../../../models/movie'
+import { ScrollableList } from '../../../organisms/index'
 
 interface MoviesProps {
   movies: IMovie[];

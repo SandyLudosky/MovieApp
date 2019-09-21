@@ -7,6 +7,6 @@ interface Props {
 
 export const EmptyTemplate: FunctionComponent<Props> = ({search}) => (
   <View>
-    <Text>No Results for this { search }</Text>
+    <Text>{ search }</Text>
   </View>
 );

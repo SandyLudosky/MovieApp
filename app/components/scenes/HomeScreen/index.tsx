@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { IMovie } from '../../../models/movie'
-import { MoviesView } from './MoviesView'
+import { MoviesView } from './templates/MoviesView'
 import {
     SafeAreaView,
     StatusBar,
@@ -26,7 +26,7 @@ class HomeScreen extends Component<NavigationProps, State> {
     state = {
       search: '', 
       movies: [], 
-      isLoading: true
+      isLoading: false
     }
     public static navigationOptions = {
       title: 'HomePage',
@@ -36,9 +36,11 @@ class HomeScreen extends Component<NavigationProps, State> {
       console.log('navigate to movie ' + movie.title)
     }
     onTextChange = (input: string) => {
-        this.setState({ search : input})
+      this.setState({ search: input, isLoading: true}, () => {
         this.fetch(input)
+      })
     }
+  
     fetch = (input: string) => {
       fetch('https://api.themoviedb.org/3/search/movie?api_key=da2a25f95b10f3083241d558d0d47ac8&query=' + input)
       .then(response => {
@@ -47,7 +49,9 @@ class HomeScreen extends Component<NavigationProps, State> {
       })
       .then(data => {
         console.log(data.results)
-        this.setState({ movies: data.results})
+        this.setState({ 
+          isLoading: false, 
+          movies: data.results})
       })
       .catch(e => {
         console.log(e)
@@ -62,7 +66,7 @@ class HomeScreen extends Component<NavigationProps, State> {
                  <SearchBar placeholder="Search Movie..." value={search} 
                             lightTheme={true} round={true}
                             onChangeText={this.onTextChange} />
-              <MoviesView movies={this.state.movies} onPress={this.onPress}/>
+              <MoviesView {...this.state} onPress={this.onPress}/>
             </SafeAreaView>
           </Fragment>
         )
