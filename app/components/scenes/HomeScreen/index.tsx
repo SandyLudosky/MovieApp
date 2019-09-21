@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { IMovie } from '../../../models/movie'
-import { MoviesList } from './MoviesList'
+import { MoviesView } from './MoviesView'
 import {
     SafeAreaView,
     StatusBar,
@@ -62,7 +62,7 @@ class HomeScreen extends Component<NavigationProps, State> {
                  <SearchBar placeholder="Search Movie..." value={search} 
                             lightTheme={true} round={true}
                             onChangeText={this.onTextChange} />
-              <MoviesList movies={this.state.movies} onPress={this.onPress}/>
+              <MoviesView movies={this.state.movies} onPress={this.onPress}/>
             </SafeAreaView>
           </Fragment>
         )
