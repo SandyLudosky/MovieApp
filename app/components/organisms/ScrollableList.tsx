@@ -5,17 +5,22 @@ import { Cell, Row } from '../molecules'
 import { Img,  TextTruncate, Accessory} from '../atoms'
 import { TextTitleSemiBold, TextDescription } from '../../common/customElements'
 import ColorPalette from '../../common/colorPalette'
+import { IMovie } from '../../models/movie';
 
-const Content  = (item: any) => {
+const Content  = (props: any) => {
+    const { item } = props
+    console.log('movie' + item.title)
+    console.log('movie' + item.overview)
     return (<Row style={ styles.row }>
                 <TextTitleSemiBold {...{style: ColorPalette.darkgray}}>{item.title}</TextTitleSemiBold>
                  {!item.overview ? 
                  <TextDescription>No Description Available</TextDescription> : 
-                 <TextTruncate text={item.overview} characterLength={80}/>}
+                 <TextTruncate text={item.overview} characterLength={80}/>
+                  }
             </Row>)
 }
 
-const ScrollableList = ({ results, onPress }: any) => {
+const ScrollableList = ({ results , onPress }: any) => {
     return (<ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
                 {results.map( (item: { poster_path: string | null; id: any; }) => {
                     const placeholder = require('../../assets/placeholder.png')
@@ -25,7 +30,7 @@ const ScrollableList = ({ results, onPress }: any) => {
                     return (<Cell item={item} onPress={onPress} key={item.id}
                                             style={styles.description}> 
                                 <Img src={imageURI} style={styles.image} />
-                                <Content item={item} />
+                                <Content item={item}/>
                                 <Accessory.ChevronIcon style={styles.icon} />
                             </Cell>)})
                 }
