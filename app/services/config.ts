@@ -9,7 +9,7 @@ export const Languages = {
     german: 'de-DE'
 
 }
-export const EndPoints = {
+export const EndPoint = {
     Search: {
         Company:'search/company',
         Collection: 'search/collection',
@@ -27,3 +27,4 @@ export const EndPoints = {
         Movie: 'movie/'
     }
 }
+

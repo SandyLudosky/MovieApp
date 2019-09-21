@@ -4,7 +4,7 @@ import { IMovie } from '../../../models/movie'
 import { MoviesList } from './templates'
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
-import { EndPoints, Languages } from '../../../services/config';
+import { EndPoint, Languages } from '../../../services/config';
 import {
     SafeAreaView,
     StatusBar,
@@ -42,7 +42,7 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     onTextChange = (input: string) => {
       this.setState({ search: input, isLoading: true}, () => {
-        const request = new Query(EndPoints.Search.Movie, '', { query: input, language: Languages.english })
+        const request = new Query(EndPoint.Search.Movie, '', { query: input, language: Languages.english })
         this.fetch(request)
       })
     }

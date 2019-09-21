@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { EndPoints } from '../../../services/config';
+import { EndPoint } from '../../../services/config';
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { IMovie } from '../../../models/movie'
@@ -25,7 +25,7 @@ class MovieScreen extends Component<Props, State>  {
     componentDidMount() {
         const params = this.props.navigation.state.params as any
         const movie = params.movie
-        const request = new Query(EndPoints.Find.Movie, movie.id, {language: 'en-US' })
+        const request = new Query(EndPoint.Find.Movie, movie.id, {language: 'en-US' })
         this.fetch(request)
     }
     fetch = (request: Query) => {

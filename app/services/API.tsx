@@ -1,25 +1,28 @@
-import { Constants } from './config'
+import { Constants, EndPoint} from './config'
 
 //returns a string to build the URL with parameters
-const urlQueryItems = (parameters: {} | undefined) => {
-    let params = ''
-    for (let [key, value] of Object.entries(parameters)) { params += `&${key}=${value}` }
-    return params
+function uriParams(parameters={} ) {
+    return Object.keys(parameters)
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent((parameters as any)[k] ))
+        .join('&');
 }
+
 export class Query {
-    endpoint: string 
-    parameters?: {}
+    endpoint: string
+    options?: {}
     id?:string
-    constructor(endpoint: any, id: string | undefined, parameters: {} | undefined) {
+    constructor(endpoint: string, id: string , options={}) {
       this.endpoint = endpoint;
-      this.parameters = parameters;
+      this.options = options;
       this.id = id;
     }
     url = () => {
         const id = this.id != '' ? `${this.id}` : ''
-        return `${Constants.BASE_URL}${this.endpoint}${id}?api_key=${Constants.API_KEY}${urlQueryItems(this.parameters)}`
+        return `${Constants.BASE_URL}${this.endpoint}${id}?api_key=${Constants.API_KEY}&${uriParams(this.options)}`
     }
 } 
+
+
 export const get = (withQuery: Query) => {
     return new Promise((resolve, reject) => {
         console.log(withQuery.url())
