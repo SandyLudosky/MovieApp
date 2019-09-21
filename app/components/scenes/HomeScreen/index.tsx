@@ -48,8 +48,9 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     fetch = (request: Query) => {
       API.get(request).then(data => {
-        const text = data.results.length == 0 ? `No Results for "${this.state.search}"` : ''
-        this.setState({ isLoading: false, movies: data.results, text: text});
+        const results = data as any
+        const text = results.results.length == 0 ? `No Results for "${this.state.search}"` : ''
+        this.setState({ isLoading: false, movies: results.results, text: text});
       })
     }
     render() {

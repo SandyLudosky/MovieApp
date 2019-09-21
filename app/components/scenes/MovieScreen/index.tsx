@@ -22,7 +22,8 @@ class MoviePage extends Component<Props, State>  {
         movie: {} as IMovie
     }
     componentDidMount() {
-        const movie = this.props.navigation.state.params.movie
+        const params = this.props.navigation.state.params as any
+        const movie = params.movie
         const request = new Query(EndPoints.Find.Movie, movie.id, {language: 'en-US' })
         this.fetch(request)
     }
