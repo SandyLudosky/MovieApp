@@ -1,24 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
-import { Cell, Row } from '../molecules'
-import { Img } from '../atoms'
-import { TextHeading2, TextBold, TextDescription } from '../../common/customElements'
-import { IMovie } from '../../models/movie'
-import Styles from '../../common/styles'
+import { Text, StyleSheet } from 'react-native';
+import { Row } from '../../../molecules'
+import { Img } from '../../../atoms'
+import { TextHeading2, TextBold, TextDescription } from '../../../../common/customElements'
+import { IMovie } from '../../../../models/movie'
 
 export interface MoviesProps {
     movie: IMovie;
 }
-
-const Poster: FunctionComponent<MoviesProps> = ({ movie }) => (
-    <View style={{ flex: 1, alignItems: 'stretch' }}>
-        <View style={{ flex: 1, backgroundColor: 'skyblue' }}>
-            <Img src={'http://image.tmdb.org/t/p/w185/' + movie.poster_path} style={Styles.MovieList.cover} />
-        </View>
-    </View>
-)
-
-const Content: FunctionComponent<MoviesProps> = ({ movie }) => (
+export const Content: FunctionComponent<MoviesProps> = ({ movie }) => (
     <Row>
         <TextHeading2 style={{ paddingBottom: 3 }}>{movie.title}</TextHeading2>
         <Row>
@@ -34,19 +24,6 @@ const Content: FunctionComponent<MoviesProps> = ({ movie }) => (
         </Row>
     </Row>
 )
-
-export const MovieView: FunctionComponent<MoviesProps> = ({ movie }) => (
-    <View style={{ flex: 1, alignItems: 'stretch' }}>
-        <Poster movie={movie} />
-        <ScrollView style={styles.scrollView}>
-            <Cell style={styles.cell}>
-                <Content movie={movie} />
-            </Cell>
-        </ScrollView>
-    </View>
-);
-
-
 
 const styles = StyleSheet.create({
     scrollView: {
@@ -72,5 +49,3 @@ const styles = StyleSheet.create({
         color: '#333'
     }
 });
-
-export default MovieView 

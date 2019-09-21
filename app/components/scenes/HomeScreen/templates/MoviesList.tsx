@@ -5,7 +5,7 @@ import {
   EmptyTemplate
 } from './index'
 
-export const MoviesView = (props: { movies: any; isLoading: any; search: any; text: string, onPress: any; })  => {
+export const MoviesList = (props: { movies: any; isLoading: any; search: any; text: string, onPress: any; })  => {
   const { movies, isLoading, text, onPress } = props
   const searchResultsAvailable = movies != null && movies.length > 0 
   if (!isLoading) {

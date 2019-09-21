@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { IMovie } from '../../models/movie'
-import Styles from '../../styles';
+import Styles from '../../common/styles';
 
 //reusable element to display movieItem in a scrollable list
 const Cell = (props: any) => {

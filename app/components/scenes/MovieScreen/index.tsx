@@ -3,13 +3,14 @@ import { EndPoints } from '../../../services/config';
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { IMovie } from '../../../models/movie'
-import { View, Text } from 'react-native'
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { Cell } from '../../molecules'
 import {
     NavigationParams,
     NavigationScreenProp,
     NavigationState,
   } from 'react-navigation';
-import { MovieView } from '../../organisms/index'
+import { Poster, Content } from './components'
 
 export interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -17,7 +18,7 @@ export interface Props {
 interface State {
     movie: IMovie
 }
-class MoviePage extends Component<Props, State>  {
+class MovieScreen extends Component<Props, State>  {
     state = {
         movie: {} as IMovie
     }
@@ -34,8 +35,41 @@ class MoviePage extends Component<Props, State>  {
     }
     render() {
         return (
-            <MovieView movie={this.state.movie} />
+            <View style={{ flex: 1, alignItems: 'stretch' }}>
+                <Poster movie={this.state.movie} />
+                <ScrollView style={styles.scrollView}>
+                    <Cell style={styles.cell}>
+                        <Content movie={this.state.movie} />
+                    </Cell>
+                </ScrollView>
+            </View>
         )
     }
 } 
-export default MoviePage
+
+const styles = StyleSheet.create({
+    scrollView: {
+        flex: 4,
+        backgroundColor: 'whitesmoke'
+    },
+    cell: {
+        flex: 1,
+        alignItems: 'stretch',
+        padding: 30
+    },
+    rating: {
+        flex: 1,
+        fontSize: 16
+    },
+    release: {
+        flex: 3,
+        fontSize: 16
+    },
+    description: {
+        flex: 4,
+        marginTop: 20,
+        color: '#333'
+    }
+});
+
+export default MovieScreen

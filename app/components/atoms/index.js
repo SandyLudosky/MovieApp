@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextDescription } from '../../common/customElements'
-import * as helpers from '../../utils/helpers'
+import * as helpers from '../../common/utils/helpers'
 import { Icon } from 'react-native-elements'
 import {
     View,
