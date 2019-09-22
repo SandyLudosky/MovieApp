@@ -25,10 +25,10 @@ Accessory.InfoCirlcleIcon = ({style}) => <View style={style}><Icon type='font-aw
 const CustomButton = ({ children}) => {children}
 CustomButton.Red = ({action, text, style}) => 
     <Button style={[{backgroundColor: '#f1c40f'}, style]} mode="contained" title={text}
-             onPress={() => action}> {text} </Button>
+             onPress={action}> {text} </Button>
 CustomButton.Yellow = ({action, text, style}) => 
     <Button style={[{backgroundColor: '#e74c3c'}, style]} mode="contained" title={text}
-             onPress={() => action}> {text} </Button>
+             onPress={action}> {text} </Button>
 
 export {
    Img,
