@@ -17,7 +17,7 @@ export function AnimatedScene(): JSX.Element {
   const scroll = useRef<ScrollView>(null);
   const [scrolled, setScrolled] = useState(false);
   const {height} = Dimensions.get('screen');
-  const backgroundColor = '#000'
+  const backgroundColor = '#fff'
   const [fadeAnim] = useState(new Animated.Value(0));
   const [scaleAnim] = useState(new Animated.Value(height));
 

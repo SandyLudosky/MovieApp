@@ -5,7 +5,6 @@ import { Cell, Row } from '../molecules'
 import { Img,  TextTruncate, Accessory} from '../atoms'
 import { TextTitleSemiBold, TextDescription } from '../../common/styles/customElements'
 import ColorPalette from '../../common/styles/colors'
-import { IMovie } from '../../models/movie';
 
 const Content  = (props: any) => {
     const { item } = props
@@ -29,7 +28,7 @@ const ScrollableList = ({ movies, onPress }: any) => {
                                             style={[styles.cell, styles.rounded]}> 
                                 <Img src={imageURI} style={styles.image} />
                                 <Content item={item}/>
-                                <Accessory.ChevronIcon style={styles.icon}/>
+                                <Accessory.InfoCirlcleIcon style={styles.icon}/>
                             </Cell>)})
                 }
             </ScrollView>)

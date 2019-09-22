@@ -11,7 +11,6 @@ import {
     NavigationState,
   } from 'react-navigation';
 
-
 export interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { IMovie } from '../../models/movie'
-import Styles from '../../common/styles';
+import { StarRating } from './StartRating'
 
 //reusable element to display movieItem in a scrollable list
 const Cell = (props: any) => {
@@ -20,8 +20,8 @@ const Row = (props: any) => {
     const { style, children} = props 
     return(<View style={style}>{children}</View>)
 }
-
 export {
     Cell, 
-    Row
+    Row, 
+    StarRating
 }

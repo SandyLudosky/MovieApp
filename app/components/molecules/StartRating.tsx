@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {View} from 'react-native';
-import {useTheme} from '../../common/styles/theme';
 
 interface IStarRating {
   size?: number;
@@ -23,7 +22,7 @@ export function StarRating({size = 30, rating = 0, stars = 5}: IStarRating) {
           key={`${index}`}
           name="star"
           size={(size / stars) * 3.5}
-          color={rating >= index + 1 ? 'white' : 'rgba(255, 255, 255, 0.3)'}
+          color={rating >= index + 1 ? 'rgba(0, 0, 0, 0.3)' : 'white'}
         />
       ))}
     </View>

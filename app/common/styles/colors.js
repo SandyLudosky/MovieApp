@@ -5,5 +5,4 @@ import { StyleSheet } from 'react-native';
     skyblue : { color: 'skyblue'},
     darkgray: { color: '#333'}
 })
-
 export default ColorPalette;

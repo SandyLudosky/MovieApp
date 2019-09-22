@@ -1,7 +1,6 @@
 import styled from 'styled-react-native'
 import { Text } from 'react-native'
-import { Headline, Subheading } from 'react-native-paper'
-
+import { Headline } from 'react-native-paper'
 
  const TextTitle = styled(Text)(()=> {
     return {

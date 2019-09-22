@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-
 export default Styles = {
   divider: {
     borderTopWidth: 1,
