@@ -32,6 +32,7 @@ class HomeScreen extends Component<NavigationProps, State> {
       search: '', 
       text: '',
       movies: [], 
+      error: null,
       isFetching: false
     }
     public static navigationOptions = {
@@ -50,7 +51,7 @@ class HomeScreen extends Component<NavigationProps, State> {
       API.get(request).then(data => {
         const json = data as any, text = json.results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
         this.setState({ isFetching: false, movies: json.results, text: text});
-      }).catch(e => { console.log(e) })
+      }).catch(e => { throw Error(e) })
     }
 
     render() {
