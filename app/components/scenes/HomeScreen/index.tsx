@@ -36,7 +36,6 @@ class HomeScreen extends Component<NavigationProps, State> {
     public static navigationOptions = {
       title: 'HomePage',
     };
-
     onPress = (movie: IMovie) => {
       this.props.navigation.navigate('Movie', {movie})
     }

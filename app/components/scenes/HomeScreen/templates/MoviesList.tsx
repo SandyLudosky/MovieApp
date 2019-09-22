@@ -7,7 +7,7 @@ export const MoviesList = (props: { movies: any; isLoading: any; search: any; te
   const { movies, isLoading, text, onPress } = props
   const searchResultsAvailable = movies != null && movies.length > 0 
   if (!isLoading) {
-      return searchResultsAvailable ? <ScrollableList results={movies} onPress={onPress} /> : <EmptyTemplate text={text}/>
+      return searchResultsAvailable ? <ScrollableList {...props} onPress={onPress} /> : <EmptyTemplate text={text}/>
   }  else {
     return <LoadingTemplate />;
   }

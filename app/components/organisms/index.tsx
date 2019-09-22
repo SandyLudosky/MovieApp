@@ -9,8 +9,6 @@ import { IMovie } from '../../models/movie';
 
 const Content  = (props: any) => {
     const { item } = props
-    console.log('movie' + item.title)
-    console.log('movie' + item.overview)
     return (<Row style={ styles.row }>
                 <TextTitleSemiBold {...{style: ColorPalette.darkgray}}>{item.title}</TextTitleSemiBold>
                  {!item.overview ? 
@@ -20,9 +18,9 @@ const Content  = (props: any) => {
             </Row>)
 }
 
-const ScrollableList = ({ results , onPress }: any) => {
+const ScrollableList = ({ movies, onPress }: any) => {
     return (<ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-                {results.map( (item: { poster_path: string | null; id: any; }) => {
+                {movies.map( (item: { poster_path: string | null; id: any; }) => {
                     const placeholder = require('../../assets/placeholder.png')
                     //pas hardcodé - placé URL dans fichier constants
                     const imageURI = 'http://image.tmdb.org/t/p/w185' + item.poster_path 
@@ -62,7 +60,8 @@ const styles = StyleSheet.create({
         height: 130,
         alignSelf: 'center',
         borderBottomLeftRadius: 10,
-        borderTopLeftRadius: 10
+        borderTopLeftRadius: 10, 
+
     },
     rounded: {
         borderRadius: 10
