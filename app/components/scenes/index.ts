@@ -1,6 +1,6 @@
 import HomeScreen from './HomeScreen'
-import MovieScreen from './MovieScreen/'
+import { MovieScreen2 } from './MovieScreen/home'
 export {
     HomeScreen,
-    MovieScreen 
+    MovieScreen2
 }
