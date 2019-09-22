@@ -10,7 +10,7 @@ export interface MoviesProps {
 export const Poster: FunctionComponent<MoviesProps> = ({ movie }) => (
     <View style={{ flex: 1, alignItems: 'stretch' }}>
         <View style={{ flex: 1, backgroundColor: 'skyblue' }}>
-            <Img src={'http://image.tmdb.org/t/p/w185/' + movie.poster_path} style={Styles.MovieList.cover} />
+            <Img src={'http://image.tmdb.org/t/p/w185/' + movie.poster_path} style={Styles.App.cover} />
         </View>
     </View>
 )

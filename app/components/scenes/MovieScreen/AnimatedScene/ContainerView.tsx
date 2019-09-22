@@ -25,7 +25,7 @@ import {
         </View>
 
         <View style={{height: 16}} />
-        <Subheading style={styles.subheading}> {movie.overview} </Subheading>
+        <Subheading style={styles.subheading}>{movie.overview != '' ? movie.overview : 'No Description Available'} </Subheading>
       </ContentContainer>)
   }
 
@@ -34,7 +34,7 @@ import {
   padding-right: 16px;
   padding-bottom: 16px;
   border-top-left-radius: 16px;
-  border-top-right-radius: 16px;s
+  border-top-right-radius: 16px;
 `;  
 
 const styles = StyleSheet.create({

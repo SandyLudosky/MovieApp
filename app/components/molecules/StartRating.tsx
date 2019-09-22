@@ -7,9 +7,7 @@ interface IStarRating {
   rating?: number;
   stars?: number;
 }
-
 export function StarRating({size = 30, rating = 0, stars = 5}: IStarRating) {
-  //const theme = useTheme();
   const _stars = Array.apply(null, Array(5));
   return (
     <View

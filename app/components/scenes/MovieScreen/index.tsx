@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { EndPoint } from '../../../services/config';
-import * as API from '../../../services/API'
-import { Query } from '../../../services/API'
+import { EndPoint } from '../../../services/api/config';
+import * as API from '../../../services/api/API'
+import { Query } from '../../../services/api/API'
 import { IMovie } from '../../../models/movie'
 import { MovieScene } from './MovieScene'
 import { AnimatedScene } from './AnimatedScene'
@@ -32,7 +32,7 @@ class MovieScreen extends Component<Props, State>  {
         }).catch(e => { console.log(e) })
     }
     render() {
-        return (<AnimatedScene movie={this.state.movie}/>)
+        return (<AnimatedScene />)
     }
 } 
 export default MovieScreen

@@ -3,9 +3,9 @@ import { IMovie } from '../../../models/movie'
 import { ScrollableList } from '../../organisms'
 import { SearchComponent } from '../../molecules'
 import ListWithLoading from './templates/ListWithLoading'
-import * as API from '../../../services/API'
-import { Query } from '../../../services/API'
-import { EndPoint, Languages } from '../../../services/config';
+import * as API from '../../../services/api/API'
+import { Query } from '../../../services/api/API'
+import { EndPoint, Languages } from '../../../services/api/config';
 import {
     SafeAreaView,
     StatusBar,
@@ -48,8 +48,8 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     fetch = (request: Query) => {
       API.get(request).then(data => {
-        const results = data as any, text = (data as any).results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
-        this.setState({ isFetching: false, movies: results.results, text: text});
+        const json = data as any, text = json.results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
+        this.setState({ isFetching: false, movies: json.results, text: text});
       }).catch(e => { console.log(e) })
     }
 

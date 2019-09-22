@@ -27,7 +27,6 @@ export const get = (withQuery: Query) => {
             .then(response => {
                 if (!response.ok) { return false }
                 resolve(response.json())
-                return 
             }).catch(e => { reject(e) })
     })
 }
