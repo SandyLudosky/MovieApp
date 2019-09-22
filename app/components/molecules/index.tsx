@@ -2,6 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { IMovie } from '../../models/movie'
 import { StarRating } from './StartRating'
+import { SearchComponent } from './SearchComponent'
 
 //reusable element to display movieItem in a scrollable list
 const Cell = (props: any) => {
@@ -23,5 +24,6 @@ const Row = (props: any) => {
 export {
     Cell, 
     Row, 
-    StarRating
+    StarRating, 
+    SearchComponent
 }
