@@ -23,15 +23,14 @@ class MovieScreen extends Component<Props, State>  {
         movie: {} as IMovie
     }
     componentDidMount() {
-        const params = this.props.navigation.state.params as any
-        const movie = params.movie
+        const params = this.props.navigation.state.params as any, movie = params.movie
         const request = new Query(EndPoint.Find.Movie, movie.id, {language: 'en-US' })
         this.fetch(request)
     }
     fetch = (request: Query) => {
         API.get(request).then(data => {
             this.setState({ movie: data as IMovie });
-        })
+        }).catch(e => { console.log(e) })
     }
     render() {
         return (

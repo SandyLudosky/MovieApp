@@ -1,7 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import { SearchBar } from 'react-native-elements';
 import { IMovie } from '../../../models/movie'
-import { MoviesList } from './templates'
+import { MoviesList } from './templates/MoviesList'
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { EndPoint, Languages } from '../../../services/config';
@@ -36,9 +36,9 @@ class HomeScreen extends Component<NavigationProps, State> {
     public static navigationOptions = {
       title: 'HomePage',
     };
+
     onPress = (movie: IMovie) => {
       this.props.navigation.navigate('Movie', {movie})
-      console.log('navigate to movie ' + movie.title)
     }
     onTextChange = (input: string) => {
       this.setState({ search: input, isLoading: true}, () => {
@@ -48,11 +48,11 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     fetch = (request: Query) => {
       API.get(request).then(data => {
-        const results = data as any
-        const text = results.results.length == 0 ? `No Results for "${this.state.search}"` : ''
+        const results = data as any, text = results.results.length == 0 ? `No Results for "${this.state.search}"` : ''
         this.setState({ isLoading: false, movies: results.results, text: text});
-      })
+      }).catch(e => { console.log(e) })
     }
+
     render() {
         const { search } = this.state
         return (
