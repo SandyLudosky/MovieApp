@@ -1,4 +1,4 @@
-import { Constants, EndPoint} from './config'
+import { Constants } from './config'
 
 //returns a string to build the URL with parameters
 function uriParams(parameters={} ) {
@@ -6,7 +6,6 @@ function uriParams(parameters={} ) {
         .map(k => encodeURIComponent(k) + '=' + encodeURIComponent((parameters as any)[k] ))
         .join('&');
 }
-
 export class Query {
     endpoint: string
     options?: {}
@@ -21,8 +20,6 @@ export class Query {
         return `${Constants.BASE_URL}${this.endpoint}${id}?api_key=${Constants.API_KEY}&${uriParams(this.options)}`
     }
 } 
-
-
 export const get = (withQuery: Query) => {
     return new Promise((resolve, reject) => {
         console.log(withQuery.url())
