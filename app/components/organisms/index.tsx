@@ -28,7 +28,7 @@ const ScrollableList = ({ movies, onPress }: any) => {
                                             style={[styles.cell, styles.rounded]}> 
                                 <Img src={imageURI} style={styles.image} />
                                 <Content item={item}/>
-                                <Accessory.InfoCirlcleIcon style={styles.icon}/>
+                                <Accessory.ChevronIcon style={styles.icon}/>
                             </Cell>)})
                 }
             </ScrollView>)
