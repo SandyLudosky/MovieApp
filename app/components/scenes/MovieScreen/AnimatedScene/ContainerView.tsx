@@ -5,15 +5,15 @@ import {
     StyleSheet 
   } from 'react-native';
   import color from 'color';
-  import {StarRating} from '../../../molecules/StartRating'
+  import {StarRating} from '../../../molecules/'
   import { CustomButton } from '../../../atoms'
-  import {Button, Subheading} from 'react-native-paper';
+  import { Subheading} from 'react-native-paper';
   import { BoldHeadline } from '../../../../common/styles/customElements'
   import styled from 'styled-components/native';
 
   export const ContainerView = (props: any) => {
       const { color, movie, height } = props
-      return( <ContentContainer style={{minHeight: height * 0.6, backgroundColor: '#000'}} >
+      return( <ContentContainer style={{minHeight: height * 0.6, backgroundColor: '#fff'}} >
         <View style={styles.view} />
         <BoldHeadline style={styles.headline}>{movie.title}</BoldHeadline>
         <StarRating rating={Math.round(movie.vote_average / 2)} />
@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
     marginRight: 10
   }, 
   headline: {
-    color: color('#fff')
+    color: color('#333')
         .alpha(1)
         .rgb()
         .string(),
   }, 
   subheading: {
-    color: color('#fff')
+    color: color('#333')
     .alpha(1)
     .rgb()
     .string()
