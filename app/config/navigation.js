@@ -1,8 +1,8 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { HomeScreen, MovieScreen2 } from '../components/scenes'
+import { HomeScreen, MovieScreen } from '../components/scenes'
 
 const AppNavigator  = createStackNavigator({
     Home: { screen: HomeScreen },
-    Movie: { screen: MovieScreen2 }
+    Movie: { screen: MovieScreen }
 });
 export default AppNavigator 

@@ -3,14 +3,15 @@ import { EndPoint } from '../../../services/config';
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { IMovie } from '../../../models/movie'
-import { View, ScrollView, StyleSheet } from 'react-native';
-import { Cell } from '../../molecules'
+import { StyleSheet } from 'react-native';
+import { MovieScene } from './MovieScene'
+import { AnimatedScene } from './AnimatedScene'
 import {
     NavigationParams,
     NavigationScreenProp,
     NavigationState,
   } from 'react-navigation';
-import { Poster, Content } from './components'
+
 
 export interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -33,16 +34,7 @@ class MovieScreen extends Component<Props, State>  {
         }).catch(e => { console.log(e) })
     }
     render() {
-        return (
-            <View style={{ flex: 1, alignItems: 'stretch' }}>
-                <Poster movie={this.state.movie} />
-                <ScrollView style={styles.scrollView}>
-                    <Cell style={styles.cell}>
-                        <Content movie={this.state.movie} />
-                    </Cell>
-                </ScrollView>
-            </View>
-        )
+        return (<AnimatedScene movie={this.state.movie}/>)
     }
 } 
 

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import { Row } from '../../../molecules'
-import { TextHeading2, TextBold, TextDescription } from '../../../../common/styles/customElements'
-import { IMovie } from '../../../../models/movie'
+import { Row } from '../../../../molecules'
+import { TextHeading2, TextBold, TextDescription } from '../../../../../common/styles/customElements'
+import { IMovie } from '../../../../../models/movie'
 
 export interface MoviesProps {
     movie: IMovie;

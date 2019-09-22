@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { View } from 'react-native';
-import { Img } from '../../../atoms'
-import { IMovie } from '../../../../models/movie'
-import Styles from '../../../../common/styles'
+import { Img } from '../../../../atoms'
+import { IMovie } from '../../../../../models/movie'
+import Styles from '../../../../../common/styles/index'
 
 export interface MoviesProps {
     movie: IMovie;
