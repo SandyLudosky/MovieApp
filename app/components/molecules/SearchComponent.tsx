@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 

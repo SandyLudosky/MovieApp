@@ -33,6 +33,14 @@ import { Headline } from 'react-native-paper'
         color: '#666' 
     }
   })
+
+  const TextEmpty = styled(Text)(() => {
+    return {
+        fontSize: 20, 
+        color: '#ccc', 
+        fontWeight: '600'
+    }
+  })
   const BoldHeadline = styled(Headline)(() =>{
     return {
       fontSize: 30,
@@ -46,5 +54,6 @@ export {
     TextDescription, 
     TextHeading1,
     TextHeading2,
-    BoldHeadline
+    BoldHeadline,
+    TextEmpty 
 } 

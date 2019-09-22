@@ -23,7 +23,7 @@ interface State {
     search: string,
     text: string,
     movies: IMovie[],
-    isLoading: boolean
+    isFetching: boolean
 }
 
 class HomeScreen extends Component<NavigationProps, State> {
@@ -31,7 +31,7 @@ class HomeScreen extends Component<NavigationProps, State> {
       search: '', 
       text: '',
       movies: [], 
-      isLoading: false
+      isFetching: false
     }
     public static navigationOptions = {
       title: 'HomePage',
@@ -40,15 +40,15 @@ class HomeScreen extends Component<NavigationProps, State> {
       this.props.navigation.navigate('Movie', {movie})
     }
     onTextChange = (input: string) => {
-      this.setState({ search: input, isLoading: true}, () => {
+      this.setState({ search: input, isFetching: true}, () => {
         const request = new Query(EndPoint.Search.Movie, '', { query: input, language: Languages.english })
         this.fetch(request)
       })
     }
     fetch = (request: Query) => {
       API.get(request).then(data => {
-        const results = data as any, text = results.results.length == 0 ? `No Results for "${this.state.search}"` : ''
-        this.setState({ isLoading: false, movies: results.results, text: text});
+        const results = data as any, text = (data as any).results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
+        this.setState({ isFetching: false, movies: results.results, text: text});
       }).catch(e => { console.log(e) })
     }
 
