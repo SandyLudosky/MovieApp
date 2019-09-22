@@ -1,5 +1,5 @@
 # MovieApp
 
-![HomePage](homepage.png)
-![MoviePage](viewscene.png)
-![Demo](demo.gif)
+![HomePage](app/assets/homepage.png)
+![MoviePage](app/assets/viewscene.png)
+![Demo](app/assets/demo.gif)
