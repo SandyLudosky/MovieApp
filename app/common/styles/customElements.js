@@ -1,5 +1,7 @@
 import styled from 'styled-react-native'
 import { Text } from 'react-native'
+import { Headline, Subheading } from 'react-native-paper'
+
 
  const TextTitle = styled(Text)(()=> {
     return {
@@ -32,11 +34,18 @@ import { Text } from 'react-native'
         color: '#666' 
     }
   })
+  const BoldHeadline = styled(Headline)(() =>{
+    return {
+      fontSize: 30,
+      fontWeight: 'bold'
+    }
+  })
 export {
     TextTitle, 
     TextTitleSemiBold,
     TextBold,
     TextDescription, 
     TextHeading1,
-    TextHeading2
+    TextHeading2,
+    BoldHeadline
 } 

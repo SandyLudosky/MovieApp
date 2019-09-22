@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextDescription } from '../../common/styles/customElements'
 import * as helpers from '../../common/utils/helpers'
+import { Button } from 'react-native-paper';
 import { Icon } from 'react-native-elements'
 import {
     View,
@@ -18,8 +19,18 @@ const TextTruncate = (props) => {
 const Accessory = ({ children}) => {children};
 Accessory.ChevronIcon = ({style}) => <View style={style}><Icon type='evilicon' name='chevron-right'/></View>;
 
+const CustomButton = ({ children}) => {children}
+CustomButton.Red = ({action, text, style}) => 
+    <Button style={[{backgroundColor: '#f1c40f'}, style]} mode="contained" title={text}
+             onPress={() => action}> {text} </Button>
+
+CustomButton.Yellow = ({action, text, style}) => 
+    <Button style={[{backgroundColor: '#e74c3c'}, style]} mode="contained" title={text}
+             onPress={() => action}> {text} </Button>
+
 export {
    Img,
    TextTruncate,
-   Accessory
+   Accessory, 
+   CustomButton
 }

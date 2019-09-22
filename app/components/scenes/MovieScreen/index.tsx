@@ -3,7 +3,6 @@ import { EndPoint } from '../../../services/config';
 import * as API from '../../../services/API'
 import { Query } from '../../../services/API'
 import { IMovie } from '../../../models/movie'
-import { StyleSheet } from 'react-native';
 import { MovieScene } from './MovieScene'
 import { AnimatedScene } from './AnimatedScene'
 import {
@@ -37,30 +36,4 @@ class MovieScreen extends Component<Props, State>  {
         return (<AnimatedScene movie={this.state.movie}/>)
     }
 } 
-
-const styles = StyleSheet.create({
-    scrollView: {
-        flex: 4,
-        backgroundColor: 'whitesmoke'
-    },
-    cell: {
-        flex: 1,
-        alignItems: 'stretch',
-        padding: 30
-    },
-    rating: {
-        flex: 1,
-        fontSize: 16
-    },
-    release: {
-        flex: 3,
-        fontSize: 16
-    },
-    description: {
-        flex: 4,
-        marginTop: 20,
-        color: '#333'
-    }
-});
-
 export default MovieScreen
