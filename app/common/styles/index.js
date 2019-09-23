@@ -8,7 +8,6 @@ export default Styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row', 
-    backgroundColor: 'powderblue',
     alignItems: 'stretch'
   },
   content: {
@@ -17,5 +16,9 @@ export default Styles = StyleSheet.create({
     height: 200,
     alignItems: 'center',
     justifyContent: 'center'
-  } 
+  },
+  loader: {
+    width:150, 
+    height: 150
+  }
 })

@@ -1,8 +1,16 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { HomeScreen, MovieScreen } from '../components/scenes'
+import { HomeScreen, MovieScreen, ModalScreen } from '../components/scenes'
 
 const AppNavigator  = createStackNavigator({
     Home: { screen: HomeScreen },
-    Movie: { screen: MovieScreen }
-});
+    Movie: { screen: MovieScreen },
+    Modal: {
+        screen: ModalScreen,
+        mode: 'modal',
+        headerMode: 'none',
+     }
+    }
+
+    
+);
 export default AppNavigator 

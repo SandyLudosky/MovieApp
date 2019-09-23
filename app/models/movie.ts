@@ -1,5 +1,6 @@
 export interface IMovie {
     id: number;
+    imdb_id: string;
     title: string;
     overview: string;
     release_date: string;

@@ -9,6 +9,7 @@ import {
     NavigationParams,
     NavigationScreenProp,
     NavigationState,
+    NavigationActions,
   } from 'react-navigation';
 
 export interface Props {
@@ -21,6 +22,9 @@ class MovieScreen extends Component<Props, State>  {
     state = {
         movie: {} as IMovie
     }
+    onPress = (id: string) => {
+        this.props.navigation.navigate('Modal', {id})
+    }
     componentDidMount() {
         const params = this.props.navigation.state.params as any, movie = params.movie
         const request = new Query(EndPoint.Find.Movie, movie.id, {language: 'en-US' })
@@ -32,7 +36,7 @@ class MovieScreen extends Component<Props, State>  {
         }).catch(e => { console.log(e) })
     }
     render() {
-        return (<AnimatedScene />)
+        return (<AnimatedScene onPress={this.onPress}/>)
     }
 } 
 export default MovieScreen

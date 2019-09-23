@@ -11,7 +11,7 @@ import {useNavigationParam} from 'react-navigation-hooks';
 import { AnimatedImage } from './AnimatedImage'
 import { ContainerView} from './ContainerView'
 
-export function AnimatedScene(): JSX.Element {
+export function AnimatedScene({onPress}: any): JSX.Element {
 
   const movie = useNavigationParam('movie');
   const scroll = useRef<ScrollView>(null);
@@ -60,7 +60,7 @@ export function AnimatedScene(): JSX.Element {
         scrollEventThrottle={16}
         onScroll={event => { scaleAnim.setValue(height - event.nativeEvent.contentOffset.y); }}>
         <View style={{height: height}} />
-        <ContainerView movie={movie} color={color} height={height} background={background} />
+        <ContainerView movie={movie} color={color} height={height} background={background} onPress={onPress}/>
       </ScrollView>
     </View>
   );

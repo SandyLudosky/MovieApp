@@ -12,16 +12,15 @@ import {
   import styled from 'styled-components/native';
 
   export const ContainerView = (props: any) => {
-      const { movie, height } = props
+      const { movie, height, onPress } = props
       return( <ContentContainer style={{minHeight: height * 0.6, backgroundColor: '#fff'}} >
         <View style={styles.view} />
         <BoldHeadline style={styles.headline}>{movie.title}</BoldHeadline>
         <StarRating rating={Math.round(movie.vote_average / 2)} />
         <View style={{height: 16}} />
         
-        <View style={{flexDirection: 'row'}}>
-          <CustomButton.Red style={styles.btn} action={() => Alert.alert('Not supported yet')} text={'Buy Tickets'} />
-          <CustomButton.Yellow  style={null} action={() => Alert.alert('Not supported yet')} text={'Bookmark'} />
+        <View style={{flexDirection: 'row-reverse'}}>
+          <CustomButton.Yellow style={styles.btn} text={'IMDB Page'} action={Alert.alert('Not supported yet')}/>
         </View>
 
         <View style={{height: 16}} />
