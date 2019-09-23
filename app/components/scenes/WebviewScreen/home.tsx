@@ -1,0 +1,82 @@
+import React, { Component } from 'react';
+import NetInfo from "@react-native-community/netinfo";
+import { IMovie } from '../../../models/movie'
+import { View, Alert, ActivityIndicator, StyleSheet } from 'react-native';
+import {WebView } from 'react-native-webview'
+import Styles from '../../../common/styles/index'
+import { Constants } from '../../../config/constants'
+import { CustomButton } from '../../atoms'
+import {
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
+
+export interface Props {
+  movie: IMovie
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+}
+interface State {
+   isReady: boolean
+}
+class WebviewScreen extends Component<Props, State> {
+    constructor(props: any) {
+      super(props)
+      this.state = {
+        isReady: false
+      }
+    }
+    componentDidMount() {
+      NetInfo.isConnected.fetch().done((isConnected: boolean) => {
+        if (!isConnected) {
+          Alert.alert('Network Failure - Please try again later')
+        }
+      
+      }); 
+    }
+    render() {
+        const { isReady } = this.state
+        const params = this.props.navigation.state.params as any, movie = params.movie
+        console.log(`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`)
+        return(
+            <View style={styles.container}>
+             <CustomButton.Back action={() => this.props.navigation.goBack()} text={'Back'} style={styles.backBtn} />
+             <WebView  source={{uri:`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`}}
+                       scalesPageToFit={true}
+                       scrollEnabled={true}
+                       javaScriptEnabled={true}
+                       automaticallyAdjustContentInsets={true}
+                       onLoadEnd={() => this.setState({isReady: true}) } />
+              <View>
+            </View>
+
+            <View style={[Styles.container, isReady ? styles.hidden :  styles.visible]}>
+              <View style={Styles.content}>
+                <ActivityIndicator />
+              </View>
+            </View> 
+          </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+  },
+  hidden: {
+    display: 'none'
+  },
+  visible: {
+    display: 'flex'
+  },
+  backBtn: {
+   marginTop: 30, 
+   marginLeft: 20,   
+   width: 100
+  }
+});
+export default WebviewScreen
