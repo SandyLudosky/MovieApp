@@ -19,5 +19,11 @@
 
 
 ![Demo](app/assets/demo.gif)<br/><br/>
-![HomePage](app/assets/homepage.png)
-![MoviePage](app/assets/moviescene.png)
+
+### iOS
+![HomePage](app/assets/homepage-ios.png)
+![MoviePage](app/assets/moviescene-ios.png)<br/><br/>
+
+### Android
+![HomePage](app/assets/homepage-android.png)
+![MoviePage](app/assets/moviescene-android.png)

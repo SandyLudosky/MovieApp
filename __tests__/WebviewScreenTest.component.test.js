@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import WebviewScreen from '../app/components/scenes/WebviewScreen';
 
 /* Webview Screen Testing */
-describe('Movie Screen', () => {
+describe('Webview Screen', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
       <WebviewScreen />
