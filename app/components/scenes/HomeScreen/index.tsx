@@ -1,4 +1,5 @@
 import React, { Component, Fragment} from 'react';
+import NetInfo from "@react-native-community/netinfo";
 import { IMovie } from '../../../models/movie'
 import { ScrollableList } from '../../organisms'
 import { SearchComponent } from '../../molecules'
@@ -9,6 +10,7 @@ import { EndPoint, Languages } from '../../../services/api/config';
 import {
     SafeAreaView,
     StatusBar,
+    Alert,
 } from 'react-native';
 import {
   NavigationParams,
@@ -48,10 +50,16 @@ class HomeScreen extends Component<NavigationProps, State> {
       })
     }
     fetch = (request: Query) => {
-      API.get(request).then(data => {
-        const json = data as any, text = json.results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
-        this.setState({ isFetching: false, movies: json.results, text: text});
-      }).catch(e => { throw Error(e) })
+      NetInfo.isConnected.fetch().done((isConnected: boolean) => {
+        if (isConnected) {
+          API.get(request).then(data => {
+            const json = data as any, text = json.results.length == 0 ? `Sorry, No Results for "${this.state.search}" :(` : ''
+            this.setState({ isFetching: false, movies: json.results, text: text});
+          }).catch(e => { throw Error(e) })
+        } else {
+           Alert.alert('Network Failure - Please try again later')
+        }
+      });
     }
 
     render() {

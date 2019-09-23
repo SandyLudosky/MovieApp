@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import NetInfo from "@react-native-community/netinfo";
 import { IMovie } from '../../../models/movie'
-import { View, StyleSheet } from 'react-native';
+import { View, Alert, StyleSheet } from 'react-native';
 import {WebView } from 'react-native-webview'
 import { CustomButton } from '../../atoms'
 import { Loader } from '../../molecules'
@@ -30,9 +31,12 @@ class ModalScreen extends Component<Props, State> {
       }
     }
     componentDidMount() {
-        console.log(this.props.id)
+      NetInfo.isConnected.fetch().done((isConnected: boolean) => {
+        if (!isConnected) {
+          Alert.alert('Network Failure - Please try again later')
+        }
+      }); 
     }
-  
     render() {
         const { isReady } = this.state
         return(
@@ -43,7 +47,6 @@ class ModalScreen extends Component<Props, State> {
               </View>
             </View>
             <WebView  source={{uri: 'https://www.imdb.com/title/tt4154796/?ref_=nv_sr_1?ref_=nv_sr_1'}} style={styles.video} 
-                    
                       onLoadEnd={() => this.setState({isReady: true}) } />
           </View>
         )

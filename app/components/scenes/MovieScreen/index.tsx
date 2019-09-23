@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NetInfo from "@react-native-community/netinfo";
+import { Alert } from 'react-native';
 import { EndPoint } from '../../../services/api/config';
 import * as API from '../../../services/api/API'
 import { Query } from '../../../services/api/API'
@@ -8,8 +10,7 @@ import { AnimatedScene } from './AnimatedScene'
 import {
     NavigationParams,
     NavigationScreenProp,
-    NavigationState,
-    NavigationActions,
+    NavigationState
   } from 'react-navigation';
 
 export interface Props {
@@ -31,9 +32,15 @@ class MovieScreen extends Component<Props, State>  {
         this.fetch(request)
     }
     fetch = (request: Query) => {
-        API.get(request).then(data => {
-            this.setState({ movie: data as IMovie });
-        }).catch(e => { console.log(e) })
+        NetInfo.isConnected.fetch().done((isConnected: boolean) => {
+            if (isConnected) {
+                API.get(request).then(data => {
+                    this.setState({ movie: data as IMovie });
+                }).catch(e => { console.log(e) })
+            } else {
+               Alert.alert('Network Failure - Please try again later')
+            }
+          }); 
     }
     render() {
         return (<AnimatedScene onPress={this.onPress}/>)

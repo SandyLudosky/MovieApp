@@ -37,6 +37,8 @@ target 'MovieApp' do
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
   target 'MovieAppTests' do
     inherit! :search_paths
     # Pods for testing
