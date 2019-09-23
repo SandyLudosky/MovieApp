@@ -8,9 +8,9 @@
 
 `cd ios`<br/>
 `pod install`<br/>
-`cd ..`
+`cd ..`<br/>
 
-**run (optional)**
+**run (optional)**<br/>
 `react-native link react-native-reanimated`<br/>
 `react-native link react-native-gesture-handler`<br/>
 `react-native link react-native-screens`<br/>
