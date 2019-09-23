@@ -37,9 +37,10 @@ class ModalScreen extends Component<Props, State> {
     render() {
         const { isReady } = this.state
         const params = this.props.navigation.state.params as any, movie = params.movie
+        console.log(`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`)
         return(
             <View style={styles.container}>
-             <WebView  source={{uri:`${Constants.IMDB_BASE_URL}${movie.imdb_id}`}}
+             <WebView  source={{uri:`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`}}
                        scalesPageToFit={true}
                        scrollEnabled={true}
                        javaScriptEnabled={true}

@@ -6,11 +6,9 @@ const AppNavigator  = createStackNavigator({
     Movie: { screen: MovieScreen },
     Modal: {
         screen: ModalScreen,
-        mode: 'modal',
-        headerMode: 'none',
+        mode: 'modal'
      }
     }
-
     
 );
 export default AppNavigator 
