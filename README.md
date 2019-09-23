@@ -1,6 +1,6 @@
 # MovieApp
 
-**for iOS - to link missing dependencies**
+**run**
 
 `yarn install`
 
@@ -12,6 +12,8 @@
 `react-native link react-native-gesture-handler`<br/>
 `react-native link react-native-screens`<br/>
 `react-native link react-native-vector-icons`<br/>
+
+**run**
 
 `cd ios`<br/>
 `pod install`<br/>
