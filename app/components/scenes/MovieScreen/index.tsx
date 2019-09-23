@@ -23,8 +23,8 @@ class MovieScreen extends Component<Props, State>  {
     state = {
         movie: {} as IMovie
     }
-    onPress = (id: string) => {
-        this.props.navigation.navigate('Modal', {id})
+    onPress = (movie: IMovie) => {
+        this.props.navigation.navigate('Modal', {movie})
     }
     componentDidMount() {
         const params = this.props.navigation.state.params as any, movie = params.movie
@@ -43,7 +43,7 @@ class MovieScreen extends Component<Props, State>  {
           }); 
     }
     render() {
-        return (<AnimatedScene onPress={this.onPress}/>)
+        return (<AnimatedScene onPress={this.onPress} movie={this.state.movie}/>)
     }
 } 
 export default MovieScreen

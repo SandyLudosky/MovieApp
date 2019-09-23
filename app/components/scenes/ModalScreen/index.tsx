@@ -6,6 +6,7 @@ import {WebView } from 'react-native-webview'
 import { CustomButton } from '../../atoms'
 import { Loader } from '../../molecules'
 import Styles from '../../../common/styles/index'
+import { Constants } from '../../../config/constants'
 import {
   NavigationParams,
   NavigationScreenProp,
@@ -13,20 +14,16 @@ import {
 } from 'react-navigation';
 
 export interface Props {
-  id: number
+  movie: IMovie
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
-
 interface State {
-   movie: IMovie
    isReady: boolean
 }
-
 class ModalScreen extends Component<Props, State> {
     constructor(props: any) {
       super(props)
       this.state = {
-        movie: {} as IMovie,
         isReady: false
       }
     }
@@ -39,15 +36,23 @@ class ModalScreen extends Component<Props, State> {
     }
     render() {
         const { isReady } = this.state
+        const params = this.props.navigation.state.params as any, movie = params.movie
         return(
-          <View>
-            <View style={Styles.container}>
-              <View style={Styles.content}>
-              {!isReady ? <Loader style={Styles.loader}/> : null }        
-              </View>
+            <View style={styles.container}>
+             <WebView  source={{uri:`${Constants.IMDB_BASE_URL}${movie.imdb_id}`}}
+                       scalesPageToFit={true}
+                       scrollEnabled={true}
+                       javaScriptEnabled={true}
+                       automaticallyAdjustContentInsets={true}
+                       onLoadEnd={() => this.setState({isReady: true}) } />
+              <View>
             </View>
-            <WebView  source={{uri: 'https://www.imdb.com/title/tt4154796/?ref_=nv_sr_1?ref_=nv_sr_1'}} style={styles.video} 
-                      onLoadEnd={() => this.setState({isReady: true}) } />
+
+            <View style={[Styles.container, isReady ? styles.hidden :  styles.visible]}>
+              <View style={Styles.content}>
+                <Loader style={Styles.loader}/>        
+              </View>
+            </View> 
           </View>
         )
     }
@@ -56,17 +61,16 @@ class ModalScreen extends Component<Props, State> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'stretch',
-    alignContent: 'stretch'
-  },
-  video: {
-    marginTop: 20,
     flexDirection: 'column',
-
-    width: 400,
-    height: 2000,
-    flex: 1
-  }, 
+    justifyContent: 'center',
+    alignItems: 'stretch',
+  },
+  hidden: {
+    display: 'none'
+  },
+  visible: {
+    display: 'flex'
+  },
   backBtn: {
    position: 'absolute',
    top: 20, 

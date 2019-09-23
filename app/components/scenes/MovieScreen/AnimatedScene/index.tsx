@@ -7,13 +7,10 @@ import {
   StyleSheet,
 } from 'react-native';
 import color from 'color';
-import {useNavigationParam} from 'react-navigation-hooks';
 import { AnimatedImage } from './AnimatedImage'
 import { ContainerView} from './ContainerView'
 
-export function AnimatedScene({onPress}: any): JSX.Element {
-
-  const movie = useNavigationParam('movie');
+export function AnimatedScene({onPress, movie}: any): JSX.Element {
   const scroll = useRef<ScrollView>(null);
   const [scrolled, setScrolled] = useState(false);
   const {height} = Dimensions.get('screen');

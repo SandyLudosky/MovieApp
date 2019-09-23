@@ -4,6 +4,7 @@ import {
     Alert,
     StyleSheet 
   } from 'react-native';
+  import {useNavigation} from 'react-navigation-hooks';
   import color from 'color';
   import {StarRating} from '../../../molecules/'
   import { CustomButton } from '../../../atoms'
@@ -13,6 +14,7 @@ import {
 
   export const ContainerView = (props: any) => {
       const { movie, height, onPress } = props
+
       return( <ContentContainer style={{minHeight: height * 0.6, backgroundColor: '#fff'}} >
         <View style={styles.view} />
         <BoldHeadline style={styles.headline}>{movie.title}</BoldHeadline>
@@ -20,7 +22,7 @@ import {
         <View style={{height: 16}} />
         
         <View style={{flexDirection: 'row-reverse'}}>
-          <CustomButton.Yellow style={styles.btn} text={'IMDB Page'} action={() => Alert.alert('Not supported yet')}/>
+          <CustomButton.Yellow style={styles.btn} text={'IMDB Page'} action={() => onPress(movie)}  />
         </View>
 
         <View style={{height: 16}} />
