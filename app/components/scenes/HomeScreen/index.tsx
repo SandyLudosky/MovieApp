@@ -49,6 +49,10 @@ class HomeScreen extends Component<NavigationProps, State> {
         this.fetch(request)
       })
     }
+    onCancel = () => { 
+      this.setState({ isFetching: false}) 
+      console.log('cancel')
+    }
     fetch = (request: Query) => {
       NetInfo.isConnected.fetch().done((isConnected: boolean) => {
         if (isConnected) {
@@ -69,8 +73,8 @@ class HomeScreen extends Component<NavigationProps, State> {
           <Fragment>
             <StatusBar barStyle="dark-content" />
             <SafeAreaView>
-              <SearchComponent onChange={this.onTextChange} search={search} />
-              <MoviesList {...this.state} onPress={this.onPress}/>
+              <SearchComponent onChange={this.onTextChange} search={search} searchCancel={this.onCancel}/>
+              <MoviesList {...this.state} onPress={this.onPress} />
             </SafeAreaView>
           </Fragment>
         )

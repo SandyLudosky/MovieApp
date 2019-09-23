@@ -9,6 +9,5 @@ const AppNavigator  = createStackNavigator({
         mode: 'modal'
      }
     }
-    
 );
 export default AppNavigator 
