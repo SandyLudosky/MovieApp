@@ -14,7 +14,8 @@ const Img = (props) => {
 }
 const TextTruncate = (props) => {
     const { text, characterLength } = props
-    return <TextDescription>{helpers.truncate(text, characterLength)}</TextDescription>
+    const length = characterLength > 55 ? 80 : 0
+    return <TextDescription>{helpers.truncate(text, length)}</TextDescription>
 }
 
 /* Component namespacing */

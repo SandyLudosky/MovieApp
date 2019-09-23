@@ -16,7 +16,7 @@ const Content = (props: any) => {
                 }
                 {!item.overview ?
                 <TextDescription>No Description Available</TextDescription> :
-                <TextTruncate text={item.overview} characterLength={80} />
+                <TextTruncate text={item.overview} characterLength={item.overview.length} />
                 }
             </Row>)
 }
