@@ -5,6 +5,7 @@ import { View, Alert, ActivityIndicator, StyleSheet } from 'react-native';
 import {WebView } from 'react-native-webview'
 import Styles from '../../../common/styles/index'
 import { Constants } from '../../../config/constants'
+import { CustomButton } from '../../atoms'
 import {
   NavigationParams,
   NavigationScreenProp,
@@ -30,6 +31,7 @@ class ModalScreen extends Component<Props, State> {
         if (!isConnected) {
           Alert.alert('Network Failure - Please try again later')
         }
+      
       }); 
     }
     render() {
@@ -38,6 +40,7 @@ class ModalScreen extends Component<Props, State> {
         console.log(`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`)
         return(
             <View style={styles.container}>
+             <CustomButton.Back action={() => this.props.navigation.goBack()} text={'Back'} style={styles.backBtn} />
              <WebView  source={{uri:`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`}}
                        scalesPageToFit={true}
                        scrollEnabled={true}
@@ -71,9 +74,8 @@ const styles = StyleSheet.create({
     display: 'flex'
   },
   backBtn: {
-   position: 'absolute',
-   top: 20, 
-   left: 20,   
+   marginTop: 30, 
+   marginLeft: 20,   
    width: 100
   }
 });
