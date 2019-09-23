@@ -77,13 +77,6 @@ const styles = StyleSheet.create({
         marginBottom: 5
     }
 });
-
-//https://www.materialpalette.com/colors
-const colors = StyleSheet.create({
-    darkblue: { color: 'darkblue' },
-    darkgray: { color: '#333' }
-})
-
 export {
     ScrollableList
 }

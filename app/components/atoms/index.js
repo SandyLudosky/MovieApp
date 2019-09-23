@@ -18,7 +18,11 @@ const TextTruncate = (props) => {
     return <TextDescription>{helpers.truncate(text, length)}</TextDescription>
 }
 
-/* Component namespacing */
+/* 
+Component namespacing 
+*/
+
+/* accessory types for items in a list */
 const Accessory = ({ children}) => {children};
 Accessory.ChevronIcon = ({style}) => <View style={style}><Icon type='evilicon' name='chevron-right'/></View>;
 Accessory.InfoCirlcleIcon = ({style}) => <View style={style}><Icon type='font-awesome' name='info-circle'/></View>;

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import NetInfo from "@react-native-community/netinfo";
 import { IMovie } from '../../../models/movie'
-import { View, Alert, ActivityIndicator, StyleSheet } from 'react-native';
-import {WebView } from 'react-native-webview'
-import Styles from '../../../common/styles/index'
-import { Constants } from '../../../config/constants'
+import { View, Alert, StyleSheet } from 'react-native';
 import { CustomButton } from '../../atoms'
+import {
+  IMDBWebview, 
+  LoadingIndicator
+} from './components/index'
 import {
   NavigationParams,
   NavigationScreenProp,
@@ -31,31 +32,21 @@ class WebviewScreen extends Component<Props, State> {
         if (!isConnected) {
           Alert.alert('Network Failure - Please try again later')
         }
-      
       }); 
+    }
+    onLoadEnd = () => {
+      this.setState({isReady: true}) 
     }
     render() {
         const { isReady } = this.state
         const params = this.props.navigation.state.params as any, movie = params.movie
-        console.log(`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`)
         return(
             <View style={styles.container}>
-             <CustomButton.Back action={() => this.props.navigation.goBack()} text={'Back'} style={styles.backBtn} />
-             <WebView  source={{uri:`${Constants.IMDB_BASE_URL}/${movie.imdb_id}`}}
-                       scalesPageToFit={true}
-                       scrollEnabled={true}
-                       javaScriptEnabled={true}
-                       automaticallyAdjustContentInsets={true}
-                       onLoadEnd={() => this.setState({isReady: true}) } />
-              <View>
+                <CustomButton.Back action={() => this.props.navigation.goBack()} text={'Back'} style={styles.backBtn} />
+                <IMDBWebview movie={movie} onLoadEnd={this.onLoadEnd} /><View>
             </View>
-
-            <View style={[Styles.container, isReady ? styles.hidden :  styles.visible]}>
-              <View style={Styles.content}>
-                <ActivityIndicator />
-              </View>
-            </View> 
-          </View>
+              <LoadingIndicator isReady={isReady} />
+            </View>
         )
     }
 }
@@ -66,12 +57,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-  },
-  hidden: {
-    display: 'none'
-  },
-  visible: {
-    display: 'flex'
   },
   backBtn: {
    marginTop: 30, 

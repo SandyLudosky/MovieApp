@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import LoadingTemplate from './LoadingTemplate'
 import EmptyTemplate from './EmptyTemplate'
 
+/* HOC to handle conditional rendering on homepage */
 function ListWithLoading(Component: FunctionComponent) {
   return function WihLoadingComponent({ isLoading, ...props }: any) {
     const { movies, isFetching, text, onPress } = props

@@ -14,7 +14,6 @@ export const Content: FunctionComponent<MoviesProps> = ({ movie }) => (
             <Text style={styles.rating}><TextBold>rating: </TextBold>{movie.vote_average != 0 ? movie.vote_average : 'N/A'}</Text>
             <Text style={styles.release}><TextBold>release: </TextBold>{movie.release_date}</Text>
         </Row>
-
         <Row style={styles.description}>
             {movie.overview == null ?
                 <TextDescription>No Description Available</TextDescription> :

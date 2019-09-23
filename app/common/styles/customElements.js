@@ -1,6 +1,15 @@
 import styled from 'styled-react-native'
 import { Text } from 'react-native'
 import { Headline } from 'react-native-paper'
+import styled from 'styled-components/native';
+
+const ContentContainer = styled.View<{color: string}>`
+padding-left: 16px;
+padding-right: 16px;
+padding-bottom: 16px;
+border-top-left-radius: 16px;
+border-top-right-radius: 16px;
+`;  
 
 const TextTitle = styled(Text)(() => {
   return {
@@ -61,5 +70,6 @@ export {
   TextHeading1,
   TextHeading2,
   BoldHeadline,
-  TextEmpty
+  TextEmpty, 
+  ContentContainer
 } 

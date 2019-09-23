@@ -51,7 +51,6 @@ class HomeScreen extends Component<NavigationProps, State> {
     }
     onCancel = () => { 
       this.setState({ isFetching: false, movies: []}) 
-      console.log('cancel')
     }
     fetch = (request: Query) => {
       NetInfo.isConnected.fetch().done((isConnected: boolean) => {
