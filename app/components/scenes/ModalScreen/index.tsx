@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import NetInfo from "@react-native-community/netinfo";
 import { IMovie } from '../../../models/movie'
-import { View, Alert, StyleSheet } from 'react-native';
+import { View, Alert, ActivityIndicator, StyleSheet } from 'react-native';
 import {WebView } from 'react-native-webview'
-import { CustomButton } from '../../atoms'
-import { Loader } from '../../molecules'
 import Styles from '../../../common/styles/index'
 import { Constants } from '../../../config/constants'
 import {
@@ -51,7 +49,7 @@ class ModalScreen extends Component<Props, State> {
 
             <View style={[Styles.container, isReady ? styles.hidden :  styles.visible]}>
               <View style={Styles.content}>
-                <Loader style={Styles.loader}/>        
+                <ActivityIndicator />
               </View>
             </View> 
           </View>
