@@ -25,8 +25,9 @@ export const get = (withQuery: Query) => {
         console.log(withQuery.url())
         fetch(withQuery.url())
             .then(response => {
-                if (!response.ok) { return false }
-                resolve(response.json())
+                if (!response.ok) { throw Error(response.statusText) }
+                return response
+            }).then(response => { resolve(response.json() )
             }).catch(e => { reject(e) })
     })
 }

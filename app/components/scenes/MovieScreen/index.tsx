@@ -20,6 +20,9 @@ interface State {
     movie: IMovie
 }
 class MovieScreen extends Component<Props, State>  {
+    static navigationOptions = ({ navigation }:any) => ({
+        title: `${navigation.state.params.movie.title}`,
+    });
     state = {
         movie: {} as IMovie
     }
