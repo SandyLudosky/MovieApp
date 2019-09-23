@@ -6,15 +6,17 @@
 
 **for iOS - to link missing dependencies**
 
-`cd ios
-pod install
-cd ..`
 
 
-`react-native link react-native-reanimated
-react-native link react-native-gesture-handler
-react-native link react-native-screens
-react-native link react-native-vector-icons`<br/><br/>
+`react-native link react-native-reanimated`<br/>
+`react-native link react-native-gesture-handler`<br/>
+`react-native link react-native-screens`<br/>
+`react-native link react-native-vector-icons`<br/>
+
+`cd ios`<br/>
+`pod install`<br/>
+`cd ..`
+
 
 ![Demo](app/assets/demo.gif)<br/><br/>
 ![HomePage](app/assets/homepage.png)
