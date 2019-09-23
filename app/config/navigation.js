@@ -1,5 +1,5 @@
 import { createStackNavigator } from 'react-navigation-stack';
-import { HomeScreen, MovieScreen, ModalScreen } from '../components/scenes'
+import { HomeScreen, MovieScreen, WebviewScreen } from '../components/scenes'
 
 const MainStack  = createStackNavigator({
     Home: { screen: HomeScreen },
@@ -12,8 +12,8 @@ const AppNavigator = createStackNavigator(
       Main: {
         screen: MainStack,
       },
-      Modal: {
-        screen: ModalScreen,
+      WebView: {
+        screen: WebviewScreen,
       },
     },
     {

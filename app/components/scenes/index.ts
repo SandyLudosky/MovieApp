@@ -1,8 +1,8 @@
 import HomeScreen from './HomeScreen'
 import MovieScreen from './MovieScreen'
-import ModalScreen from './ModalScreen'
+import WebviewScreen from './WebviewScreen'
 export {
     HomeScreen,
     MovieScreen,
-    ModalScreen
+    WebviewScreen 
 }

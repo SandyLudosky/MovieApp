@@ -27,7 +27,7 @@ class MovieScreen extends Component<Props, State>  {
         movie: {} as IMovie
     }
     onPress = (movie: IMovie) => {
-        this.props.navigation.navigate('Modal', {movie})
+        this.props.navigation.navigate('WebView', {movie})
     }
     componentDidMount() {
         const params = this.props.navigation.state.params as any, movie = params.movie
