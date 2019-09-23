@@ -7,6 +7,12 @@ const TextTitle = styled(Text)(() => {
     fontSize: 20
   }
 })
+const TextTitleSmallBold = styled(TextTitle)(() => {
+  return {
+    fontWeight: '400',
+    fontSize: 17
+  }
+})
 const TextTitleSemiBold = styled(TextTitle)(() => {
   return {
     fontWeight: '400'
@@ -49,6 +55,7 @@ const BoldHeadline = styled(Headline)(() => {
 export {
   TextTitle,
   TextTitleSemiBold,
+  TextTitleSmallBold,
   TextBold,
   TextDescription,
   TextHeading1,

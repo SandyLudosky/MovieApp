@@ -3,14 +3,17 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Cell, Row } from '../molecules'
 import { Img, TextTruncate, Accessory } from '../atoms'
-import { TextTitleSemiBold, TextDescription } from '../../common/styles/customElements'
+import { TextTitleSemiBold, TextTitleSmallBold, TextDescription} from '../../common/styles/customElements'
 import ColorPalette from '../../common/styles/colors'
 import { Constants } from '../../config/constants'
 
 const Content = (props: any) => {
     const { item } = props
     return (<Row style={styles.row}>
-                 <TextTitleSemiBold {...{ style: ColorPalette.darkgray }}>{item.title}</TextTitleSemiBold>
+                {item.title.length > 15 ?
+                 <TextTitleSmallBold {...{ style: ColorPalette.darkgray }}>{item.title}</TextTitleSmallBold> :
+                 <TextTitleSemiBold {...{ style: ColorPalette.darkgray }}>{item.title}</TextTitleSemiBold> 
+                }
                 {!item.overview ?
                 <TextDescription>No Description Available</TextDescription> :
                 <TextTruncate text={item.overview} characterLength={80} />

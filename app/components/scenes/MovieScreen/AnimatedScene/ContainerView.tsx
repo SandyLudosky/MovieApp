@@ -20,7 +20,7 @@ import {
         <View style={{height: 16}} />
         
         <View style={{flexDirection: 'row-reverse'}}>
-          <CustomButton.Yellow style={styles.btn} text={'IMDB Page'} action={Alert.alert('Not supported yet')}/>
+          <CustomButton.Yellow style={styles.btn} text={'IMDB Page'} action={() => Alert.alert('Not supported yet')}/>
         </View>
 
         <View style={{height: 16}} />
