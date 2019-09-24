@@ -18,7 +18,7 @@ export interface Props {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 interface State {
-   isReady: boolean
+   isReady: boolean    
 }
 class WebviewScreen extends Component<Props, State> {
     state = {
