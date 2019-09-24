@@ -57,7 +57,7 @@ export function AnimatedScene({onPress, movie}: any): JSX.Element {
         scrollEventThrottle={16}
         onScroll={event => { scaleAnim.setValue(height - event.nativeEvent.contentOffset.y); }}>
         <View style={{height: height}} />
-        <ContainerView movie={movie} color={color} height={height} background={background} onPress={onPress}/>
+          <ContainerView movie={movie} color={color} height={height} background={background} onPress={onPress}/>
       </ScrollView>
     </View>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NetInfo from "@react-native-community/netinfo";
 import { Alert } from 'react-native';
-import * as API from '../../../services/api/API'
+import { API } from '../../../services/index'
 import { IMovie } from '../../../models/movie'
 import { MovieScene } from './MovieScene'
 import { AnimatedScene } from './AnimatedScene'

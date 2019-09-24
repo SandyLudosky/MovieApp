@@ -20,7 +20,7 @@ const Content = (props: any) => {
                 }
             </Row>)
 }
-const ScrollableList = ({ movies, onPress }: any) => {
+export const ScrollableList = ({ movies, onPress }: any) => {
     return (<ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
             {movies.map((item: { poster_path: string | null; id: any; }) => {
             const imageURI = item.poster_path != null ? `${Constants.IMAGE_BASE_URL}${item.poster_path}` : Constants.PLACEHOLDER
@@ -77,6 +77,3 @@ const styles = StyleSheet.create({
         marginBottom: 5
     }
 });
-export {
-    ScrollableList
-}

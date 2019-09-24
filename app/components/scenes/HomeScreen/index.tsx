@@ -4,7 +4,7 @@ import { IMovie } from '../../../models/movie'
 import { ScrollableList } from '../../organisms'
 import { SearchComponent } from '../../molecules'
 import ListWithLoading from './templates/ListWithLoading'
-import * as API from '../../../services/api/API'
+import { API } from '../../../services/index'
 import {
   SafeAreaView,
   StatusBar,

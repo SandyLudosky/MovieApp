@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NetInfo from "@react-native-community/netinfo";
 import { IMovie } from '../../../models/movie'
-import { View, Alert, StyleSheet, ActivityIndicator} from 'react-native';
+import { View, Alert, StyleSheet } from 'react-native';
 import { CustomButton } from '../../atoms'
 import {
   IMDBWebview, 

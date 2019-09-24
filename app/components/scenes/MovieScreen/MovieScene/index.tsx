@@ -7,7 +7,7 @@ import { IMovie } from '../../../../models/movie';
 export interface MoviesProps {
   movie: IMovie;
 }
-export const MovieScene: FunctionComponent<MoviesProps> = ({ movie }) => (
+export const MovieScene: FunctionComponent<MoviesProps> = ({ movie }: any) => (
   <View style={{ flex: 1, alignItems: 'stretch' }}>
         <Poster movie={movie} />
         <ScrollView style={styles.scrollView}>

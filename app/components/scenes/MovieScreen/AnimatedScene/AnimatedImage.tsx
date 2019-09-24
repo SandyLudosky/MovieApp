@@ -5,7 +5,6 @@ import {
     StyleSheet,
   } from 'react-native';
 
-  
   export const AnimatedImage = (props: any) => {
       const { show, fadeAnim, scaleAnim, movie, height } = props
       const imageURI = movie.poster_path != null ? `${Constants.IMAGE_BASE_URL}${movie.poster_path}` : Constants.PLACEHOLDER_POSTER
