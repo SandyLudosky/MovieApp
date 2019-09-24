@@ -18,6 +18,13 @@
 
 ![Demo](app/assets/demo.gif)<br/><br/>
 
+**for Android** 
+in case you run into `keystore debug` issue, follow instructions at (keystore debug )(https://github.com/facebook/react-native/issues/25629)<br/><br/>
+in `android/app/` directory<br/><br/>
+run :<br/><br/>
+`keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
+
+
 ### iOS
 ![HomePage](app/assets/homepage-ios.png)
 ![MoviePage](app/assets/moviescene-ios.png)<br/><br/>
