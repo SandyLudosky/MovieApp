@@ -15,12 +15,10 @@ import {
   NavigationScreenProp,
   NavigationState,
 } from 'react-navigation'
-import { is } from '@babel/types';
 
 export interface NavigationProps {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
-
 interface State {
   search: string,
   text: string,
@@ -28,7 +26,6 @@ interface State {
   isFetching: boolean,
   isConnected: boolean
 }
-
 class HomeScreen extends Component<NavigationProps, State> {
   state = {
     search: '',
@@ -54,7 +51,6 @@ class HomeScreen extends Component<NavigationProps, State> {
   }
   onTextChange = (input: string) => {
     this.setState({ search: input, isFetching: true }, () => {
-
       this.fetch(input)
     })
   }

@@ -10,7 +10,6 @@ async function fetchMovies(input: string) {
         return movies
     } catch(err) { throw err }
 }
-
 async function fetchMovie(id: string) {
     const request = new Query(EndPoint.Find.Movie, id, {language: 'en-US' })
     try {

@@ -38,7 +38,6 @@ class MovieScreen extends Component<Props, State>  {
     onPress = (movie: IMovie) => {
         this.props.navigation.navigate('WebView', { movie })
     }
-
     fetch = (id: string) => {
         if (this.state.isConnected) {
             API.fetchMovie(id).then(movie => {

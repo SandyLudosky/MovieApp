@@ -8,7 +8,7 @@ import {
 
 export const LoadingIndicator = (props: any) => { 
     const { isReady } = props
-    return(<View style={[Styles.container, isReady ? styles.hidden :  styles.visible]}>
+    return(<View style={[Styles.container, isReady ? styles.hidden : styles.visible]}>
         <View style={Styles.content}>
           <ActivityIndicator />
         </View>
