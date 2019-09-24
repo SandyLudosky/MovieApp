@@ -21,18 +21,15 @@ interface State {
    isReady: boolean
 }
 class WebviewScreen extends Component<Props, State> {
-    constructor(props: any) {
-      super(props)
-      this.state = {
-        isReady: false
-      }
+    state = {
+      isReady: false
     }
     componentDidMount() {
       NetInfo.isConnected.fetch().done((isConnected: boolean) => {
         if (!isConnected) {
           Alert.alert('Network Failure - Please try again later')
         }
-      }); 
+      });  
     }
     onLoadEnd = () => {
       this.setState({isReady: true}) 

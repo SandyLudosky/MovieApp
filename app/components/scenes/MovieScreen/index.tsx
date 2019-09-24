@@ -43,7 +43,7 @@ class MovieScreen extends Component<Props, State>  {
             } else {
                Alert.alert('Network Failure - Please try again later')
             }
-          }); 
+          });  
     }
     render() {
         return (<AnimatedScene onPress={this.onPress} movie={this.state.movie}/>)
