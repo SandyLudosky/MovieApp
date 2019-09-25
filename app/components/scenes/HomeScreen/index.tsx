@@ -49,12 +49,12 @@ class HomeScreen extends Component<NavigationProps, State> {
   onPress = (movie: IMovie) => {
     this.props.navigation.navigate('Movie', { movie })
   }
-  onTextChange = (input: string) => {
+  onSearchChange = (input: string) => {
     this.setState({ search: input, isFetching: true }, () => {
       this.fetch(input)
     })
   }
-  onCancel = () => {
+  onSearchCancel = () => {
     this.setState({ isFetching: false, movies: [] })
   }
   fetch = (input: string) => {
@@ -72,7 +72,8 @@ class HomeScreen extends Component<NavigationProps, State> {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-          <SearchComponent onChange={this.onTextChange} search={search} searchCancel={this.onCancel} />
+          <SearchComponent onChange={this.onSearchChange}
+                           onCancel={this.onSearchCancel} search={search}  />
           <MoviesList {...this.state} onPress={this.onPress} />
         </SafeAreaView>
       </Fragment>
