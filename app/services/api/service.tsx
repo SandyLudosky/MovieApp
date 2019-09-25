@@ -13,11 +13,10 @@ export class Query {
         const id = this.id != '' ? `${this.id}` : ''
         return Constants.BASE_URL
                +this.endpoint
-               +this.id
+               +id
                +'?api_key='
                +Constants.API_KEY
                +'&'+uriParams(this.options) 
-        //return `${Constants.BASE_URL}${this.endpoint}${id}?api_key=${Constants.API_KEY}&${uriParams(this.options)}`
     }
 } 
 
